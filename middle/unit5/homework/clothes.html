@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/jquery-1.12.0.min.js" >
+<script src="js/bootstrap.min.js" >
+</script>
+</head>
+<body>
+
+<div class="container">
+ <div class="col-xs-12" style="">
+ 
+
+<h1>Let's Learn Clothes!!</h1>
+
+<audio controls id="linkAudio1" style="visibility: hidden;">
+  <source src="" type="audio/ogg">
+Your browser does not support the audio element.
+</audio></br>
+
+<button id="checkHeight" class="col-xs-12 col-md-1 btn btn-info" style="height: 3em; font-size: 3em;" onclick="myFunction()"><span class="glyphicon glyphicon-hand-up"></span></button>
+<div class="col-xs-12 col-md-1" style="height: 2em;"></div>
+
+
+<button class="col-xs-12 col-md-10 btn btn-primary" style="visibility: hidden;" id="demo" onclick="playSound()"><span><img src="" id="background_Image" style="" /></span></button>
+
+</div>
+</div>
+<script>
+
+var myArray = ['0','1','2','3','4','5','6'];
+
+function myFunction() { // run this when the button "Pictures" is clicked on.
+    whatPhoto = shuffle(myArray.length); // call function shuffle and send the length of myArray.
+	document.getElementById("checkHeight").style.height = "14em";
+function imageResize(y){
+	
+	var img1 = new Image();
+	img1.onload = function() {
+		document.getElementById("demo").style.width = this.width+10;
+		document.getElementById("demo").style.height = this.height+10;
+	}
+
+img1.src = y.src;
+}
+
+	if (whatPhoto == 0) {
+		document.getElementById("demo").style.visibility = "visible";
+		bkImg = document.getElementById("background_Image");
+		bkImg.src = "resources/hat.jpg";
+		imageResize(bkImg);
+	    document.getElementById("linkAudio1").src = "resources/hat.ogg";
+
+    } else if (whatPhoto == 1) {
+		document.getElementById("demo").style.visibility = "visible";
+		document.getElementById("background_Image").src = "resources/coat.jpg"
+        document.getElementById("linkAudio1").src = "resources/coat.ogg";
+    } else if (whatPhoto == 2) {
+		document.getElementById("demo").style.visibility = "visible";
+		document.getElementById("background_Image").src = "resources/sandals.jpg";
+	    document.getElementById("linkAudio1").src = "resources/sandals.ogg";
+
+    } else if (whatPhoto == 3) {
+		document.getElementById("demo").style.visibility = "visible";
+		document.getElementById("background_Image").src = "resources/boots.jpg";
+	    document.getElementById("linkAudio1").src = "resources/boots.ogg";
+
+    } else if (whatPhoto == 4) {
+		document.getElementById("demo").style.visibility = "visible";
+		document.getElementById("background_Image").src = "resources/sweater.jpg";
+	    document.getElementById("linkAudio1").src = "resources/sweater.ogg";
+
+    } else if (whatPhoto == 5) {
+		document.getElementById("demo").style.visibility = "visible";
+		document.getElementById("background_Image").src = "resources/t-shirt.jpg";
+	    document.getElementById("linkAudio1").src = "resources/t-shirt.ogg";
+
+    } else if (whatPhoto == 6) {
+		document.getElementById("demo").style.visibility = "visible";
+		document.getElementById("background_Image").src = "resources/shorts.jpg";
+	    document.getElementById("linkAudio1").src = "resources/shorts.ogg";
+
+    }
+}
+
+function shuffle(o){ // shuffle section starts here and takes o as the value for the length of myArray.
+    return Math.floor(Math.random() * o); // Generate a random number and round it to an integer. Then send the result back to the statement that called it.
+} //Shuffle section ends here.
+
+function playSound(){ // playSound section starts here.
+
+
+    document.getElementById("linkAudio1").play(); // Get the id from the HTML Element "linkAudio1". When it's clicked on play the audio.
+	
+} // playSound section ends here.
+
+</script>
+
+</body>
+</html>

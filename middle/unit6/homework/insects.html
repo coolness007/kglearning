@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/jquery-1.12.0.min.js" ></script>
+<script src="js/bootstrap.min.js" ></script>
+</head>
+<body>
+
+<div class="container">
+ <div class="col-xs-12" style="">
+ 
+
+<h1>Let's Learn insects!!</h1>
+
+<audio controls id="linkAudio1" style="visibility: hidden;">
+  <source src="" type="audio/ogg">
+Your browser does not support the audio element.
+</audio></br>
+
+<button class="col-xs-12 btn btn-primary" style="height: 4em;" onclick="myFunction()"><span class="glyphicon glyphicon-hand-up"></span></button>
+<div class="col-xs-12" style="height: 4em;"></div>
+
+
+<button class="col-xs-12 btn btn-success" style="visibility: hidden;" id="demo" onclick="playSound()"><span><img src="" id="background_Image" style="" /></span></button>
+
+</div>
+</div>
+<script>
+
+var myArray1 = new Array(7);
+myArray1[0] = {name: "ant"};
+myArray1[1] = {name: "bee"};
+myArray1[2] = {name: "butterfly"};
+myArray1[3] = {name: "caterpillar"};
+myArray1[4] = {name: "ladybug"};
+myArray1[5] = {name: "leaf"};
+myArray1[6] = {name: "rock"};
+
+var myArray2 = new Array(3);
+
+
+
+function myFunction() { // run this when the button "Pictures" is clicked on.
+    whatPhoto = shuffle(myArray1.length); // call function shuffle and send the length of myArray1.
+	whatPhoto2 = shuffle(myArray2.length); // call function shuffle and send the length of myArray2.
+	
+
+	/*function imageResize(y){
+	
+		var img1 = new Image();
+		img1.onload = function() {
+			imgButton = document.getElementById("demo");
+			imgButton.style.width = this.width+10;
+			imgButton.style.height = this.height+10;
+		}
+
+	img1.src = y.src;
+	}*/
+	
+	
+	document.getElementById("demo").style.visibility = "visible";
+	whatPhoto++;
+	whatPhoto2++;
+	bkImg = document.getElementById("background_Image");
+	bkImg.src = "0" + whatPhoto + "/" + "0" + whatPhoto2 + ".jpg";
+	//imageResize(bkImg);
+	document.getElementById("linkAudio1").src = "sounds" + "/" + myArray1[whatPhoto - 1].name + "0" + whatPhoto + ".ogg";
+
+}
+
+function shuffle(o){ // shuffle section starts here and takes o as the value for the length of myArray.
+    return Math.floor(Math.random() * o); // Generate a random number and round it to an integer. Then send the result back to the statement that called it.
+} //Shuffle section ends here.
+
+function playSound(){ // playSound section starts here.
+
+
+    document.getElementById("linkAudio1").play(); // Get the id from the HTML Element "linkAudio1". When it's clicked on play the audio.
+	
+} // playSound section ends here.
+
+</script>
+
+</body>
+</html>
